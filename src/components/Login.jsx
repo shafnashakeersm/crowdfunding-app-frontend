@@ -46,7 +46,7 @@ const Login = () => {
                                         <div class="row g-3 justify-content-md-center">
                                             <div class="col-auto ">
                                                 <label htmlFor="" className="form-label">New User?</label>
-                                                <a href="" className="href">SignUp</a>
+                                                <a href="/SignUp" className="href">SignUp</a>
                                             </div>
                                         </div>
                                     </div>
