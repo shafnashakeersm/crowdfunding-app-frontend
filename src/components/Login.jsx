@@ -39,7 +39,7 @@ const Login = () => {
 
                                         <div class="row g-3 justify-content-md-center">
                                             <div class="col-auto ">
-                                                <button className="btn btn-primary">LogIn</button>
+                                                <button className="btn btn-primary">SignIn</button>
                                             </div>
                                         </div>
 
