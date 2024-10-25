@@ -97,11 +97,11 @@ const SignUp = () => {
                             <div className="mb-3">
                                 <label for="Gender" class="form-label">Gender</label>
                                 <div class="col-auto" >
-                                    <select name="" id="" className="form-control ">
+                                    <select name="gender" id="" className="form-control" value={input.gender} onChange={inputHandler}>
                                         <option value="">select</option>
-                                        <option value="">Male</option>
-                                        <option value="">Female</option>
-                                        <option value="">Others</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Others">Others</option>
                                     </select>
                                 </div>
                             </div>
