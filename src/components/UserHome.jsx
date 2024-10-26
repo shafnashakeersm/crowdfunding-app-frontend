@@ -8,12 +8,11 @@ const UserHome = () => {
     const handlepostClick=()=>{
       navigate('/post'); //Navigate to the post page
     };
-
-    const handleviewmedpostClick=()=>{
-        navigate('/viewmedpost'); //Navigate to the post page
-       
+  
+    const handlefundhomeClick=()=>{
+        navigate('/fundhome'); //Navigate to the post page
       };
-
+  
       const handlefudpostClick=()=>{
         navigate('/fudpost'); //Navigate to the post page
       };
@@ -63,7 +62,7 @@ const UserHome = () => {
                                         <img src="https://cdn.prod.website-files.com/5ef22750acc5c463b2f8052b/6478e71a9688990bcafd64c2_donate%20website%20(1).png" class="card-img-top" alt="..."  height="269px"/>
                                             <div class="card-body">
                                                 <h5 class="card-title">START FUNDRAISING</h5>
-                                                <a href="#" class="btn btn-primary"  onClick={handleviewmedpostClick}>Start Now</a>
+                                                <a href="#" class="btn btn-primary"  onClick={handlefundhomeClick}>Start Now</a>
                                             </div>
                                     </div>
                                 </div>
