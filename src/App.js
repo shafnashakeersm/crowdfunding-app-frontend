@@ -19,6 +19,7 @@ function App() {
         <Route path='/userhome' element={<UserHome/>}/>
         <Route path='/post' element={<MedPost/>}/>
         <Route path='/viewmedpost' element={<ViewMedPost/>}/>
+        <Route path='/viewfudpost' element={<ViewMedPost/>}/>
       </Routes>
       </BrowserRouter>
       
