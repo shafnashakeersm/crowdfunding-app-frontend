@@ -5,9 +5,15 @@ import { useNavigate } from 'react-router-dom';
 const UserHome = () => {
     const navigate=useNavigate(); //Hook tp programmatically navigate
 
-    const handlePostClick=()=>{
+    const handlepostClick=()=>{
       navigate('/post'); //Navigate to the post page
     };
+
+    const handleviewmedpostClick=()=>{
+        navigate('/viewmedpost'); //Navigate to the post page
+      };
+
+
     return (
         <div style={{
             backgroundColor: "#1f2631", // You can change this to any color you prefer
@@ -24,7 +30,7 @@ const UserHome = () => {
                                         <div class="card-body">
                                             <h5 class="card-title">MEDICAL</h5>
                                           //  <p class="card-title">Some quick example text to build on the card title and make up the bulk of the card's content</p>
-                                            <a href="#" class="btn btn-primary" onClick={handlePostClick}>Click Here</a>
+                                            <a href="#" class="btn btn-primary" onClick={handlepostClick}>Click Here</a>
                                         </div>
                                     </div>
                                 </div>
@@ -59,7 +65,7 @@ const UserHome = () => {
                                             <div class="card-body">
                                                 <h5 class="card-title">START FUNDRAISING</h5>
                                                 //<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                <a href="#" class="btn btn-primary">Start Now</a>
+                                                <a href="#" class="btn btn-primary"  onClick={handleviewmedpostClick}>Start Now</a>
                                             </div>
                                     </div>
                                 </div>

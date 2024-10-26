@@ -1,47 +1,61 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 const ViewMedPost = () => {
-  return (
-    <div>
-         <div className="container">
-                <div className="row">
-                    <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                        <div className="row g-3">
-                            {data.map(
-                                (value, index) => {
-                                    return <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-12 xl-12 col-xxl-12">
-                                        <div class="card mb-3" >
-                                            <div class="row g-0">
-                                                <div class="col-md-4">
-                                                    <img src="https://neilpatel.com/wp-content/uploads/2017/09/blog-post-image-guide.jpg" class="img-fluid rounded-start" alt="..." />
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="card-body">
-                                                        <h1 class="card-title">{value.name}</h1>
-                                                        <h1 class="card-title">{value.dob}</h1>
-                                                        <h1 class="card-title">{value.gender}</h1>
-                                                        <h1 class="card-title">{value.address}</h1>
-                                                        <h1 class="card-title">{value.city}</h1>
-                                                        <h1 class="card-title">{value.phone}</h1>
-                                                        <h1 class="card-title">{value.email}</h1>
-                                                        <h1 class="card-title">{value.medhistory}</h1>
-                                                        <h1 class="card-title">{value.PostedDate}</h1>
-                                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                        <p class="card-text"><small class="text-body-secondary">posted on{value.postedDate}</small></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+    const [token] = useState(sessionStorage.getItem("token"))
+    const [data, setData] = useState([])
 
-                                }
-                            )}
+    const fetchData = () => {
+        console.log(token)
+        axios.post("http://localhost:3030/viewmedpost", {}, {
+            headers: { "token": token, "content-Type": "application/json" }
+        }).then(
+            (Response) => {
+                console.log(Response.data)
+                setData(Response.data)
+            }
+        ).catch(
+            (error) => { console.log(error) }
+        )
+    }
+
+    useEffect(() => { fetchData() }, [])
+
+    return (
+        <div>
+            <div className="container">
+                <div className="col-12">
+                    {data.map((value, index) => (
+                        <div key={index} className="card mb-3" style={{ padding: '0.5px', marginBottom: '10px' }}>
+                            <div className="row g-0">
+                                <div className="col-md-8">
+                                    <div className="card-body" style={{ padding: '10px', maxHeight: '400px', position: 'relative' }}>
+
+                                        <div style={{ position: 'absolute', top: '10px', right: '10px', fontSize: '0.87em', color: 'gray' }}>
+                                            <small>Posted on: {value.PostedDate}</small>
+                                        </div>
+
+                                        <h2 className="card-title" style={{ marginBottom: '8px' }}>{value.name}</h2>
+                                        <div style={{ display: 'grid', gridTemplateColumns: '120px 1fr', alignItems: 'center' }}>
+                                            <p><strong>DOB :</strong></p><p>{value.dob}</p>
+                                            <p><strong>GENDER :</strong></p><p>{value.gender}</p>
+                                            <p><strong>ADDRESS :</strong></p><p>{value.address}</p>
+                                            <p><strong>CITY :</strong></p><p>{value.city}</p>
+                                            <p><strong>PHONE NO :</strong></p><p>{value.phone}</p>
+                                            <p><strong>MAIL-ID :</strong></p><p>{value.email}</p>
+                                            <p><strong>MEDICAL HISTORY :</strong></p><p>{value.medhistory}</p>
+                                            <button className="btn btn-danger">DONATE</button>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    ))}
                 </div>
             </div>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default ViewMedPost
