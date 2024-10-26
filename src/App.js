@@ -8,6 +8,8 @@ import UserHome from './components/UserHome';
 import MedPost from './components/MedPost';
 import ViewMedPost from './components/ViewMedPost';
 import FudPost from './components/FudPost';
+import FundHome from './components/FundHome';
+import ViewFoodPost from './components/ViewFoodPost';
 
 function App() {
   return (
@@ -21,7 +23,8 @@ function App() {
         <Route path='/post' element={<MedPost/>}/>
         <Route path='/viewmedpost' element={<ViewMedPost/>}/>
         <Route path='/fudpost' element={<FudPost/>}/>
-        <Route path='/viewfudpost' element={<ViewMedPost/>}/>
+        <Route path='/viewfudpost' element={<ViewFoodPost/>}/>
+        <Route path='/fundhome' element={<FundHome/>}/>
       </Routes>
       </BrowserRouter>
       
