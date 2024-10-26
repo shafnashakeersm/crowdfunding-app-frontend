@@ -12,6 +12,10 @@ const FundHome = () => {
     const handleviewfudpostClick = () => {
         navigate('/viewfudpost'); //Navigate to the post page
     };
+
+    const handleviewcmppostClick = () => {
+        navigate('/viewcmppost'); //Navigate to the post page
+    };
     return (
         <div>
             <div className="container">
@@ -45,7 +49,7 @@ const FundHome = () => {
                                         <div class="card-body">
                                             <img src="https://img.freepik.com/premium-photo/men-women-different-ages-nationalities-are-putting-together-puzzle-top-view-concept-mental-health-care-campaign-togetherness-charity-love-donation-helping-hands_503750-3883.jpg" class="card-img-top" alt="..." height="269px" />
                                             <h5 class="card-title">CAMPEIGN</h5>
-                                            <a href="#" class="btn btn-primary">Click Here</a>
+                                            <a href="#" class="btn btn-primary" onClick={handleviewcmppostClick}>Click Here</a>
                                         </div>
                                     </div>
                                 </div>
