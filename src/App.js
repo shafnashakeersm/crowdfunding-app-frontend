@@ -10,6 +10,7 @@ import ViewMedPost from './components/ViewMedPost';
 import FudPost from './components/FudPost';
 import FundHome from './components/FundHome';
 import ViewFoodPost from './components/ViewFoodPost';
+import CampPost from './components/CampPost';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/fudpost' element={<FudPost/>}/>
         <Route path='/viewfudpost' element={<ViewFoodPost/>}/>
         <Route path='/fundhome' element={<FundHome/>}/>
+        <Route path='/camppost' element={<CampPost/>}/>
       </Routes>
       </BrowserRouter>
       
