@@ -13,6 +13,10 @@ const UserHome = () => {
         navigate('/viewmedpost'); //Navigate to the post page
       };
 
+      const handleviewfudpostClick=()=>{
+        navigate('/viewfudpost'); //Navigate to the post page
+      };
+
 
     return (
         <div>
@@ -36,7 +40,7 @@ const UserHome = () => {
                                         <img src="https://media.istockphoto.com/id/524903696/photo/poor-indian-children-asking-for-food-india.jpg?s=612x612&w=0&k=20&c=uAUDyZRdpReAW51hD29W7fOCTDzNrOdHkAdKXErbapU=" class="card-img-top" alt="..."  height="269px"/>
                                         <div class="card-body">
                                             <h5 class="card-title">FOOD</h5>
-                                            <a href="#" class="btn btn-primary">Click Here</a>
+                                            <a href="#" class="btn btn-primary" onClick={handleviewfudpostClick}>Click Here</a>
                                         </div>
                                     </div>
                                 </div>
