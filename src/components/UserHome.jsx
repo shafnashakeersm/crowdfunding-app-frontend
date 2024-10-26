@@ -17,6 +17,10 @@ const UserHome = () => {
         navigate('/fudpost'); //Navigate to the post page
       };
 
+      const handlecamppostClick=()=>{
+        navigate('/camppost'); //Navigate to the post page
+      };
+
 
     return (
         <div>
@@ -51,7 +55,7 @@ const UserHome = () => {
                                         <img src="https://img.freepik.com/premium-photo/men-women-different-ages-nationalities-are-putting-together-puzzle-top-view-concept-mental-health-care-campaign-togetherness-charity-love-donation-helping-hands_503750-3883.jpg" class="card-img-top" alt="..."  height="269px"/>
                                         <div class="card-body">
                                             <h5 class="card-title">CAMPEIGN</h5>
-                                            <a href="#" class="btn btn-primary">Click Here</a>
+                                            <a href="#" class="btn btn-primary" onClick={handlecamppostClick}>Click Here</a>
                                         </div>
                                     </div>
                                 </div>
