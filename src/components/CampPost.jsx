@@ -69,7 +69,7 @@ const CampPost = () => {
                             <textarea name="place" className="form-control" value={input.place} onChange={inputHandler}></textarea>
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="gender" className="form-label">Class Mode</label>
+                            <label htmlFor="gender" className="form-label">Campeign Mode</label>
                             <div className="col-auto">
                                 <select name="mode" className="form-control" value={input.mode} onChange={inputHandler}>
                                     <option value="">Select</option>

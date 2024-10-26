@@ -11,6 +11,7 @@ import FudPost from './components/FudPost';
 import FundHome from './components/FundHome';
 import ViewFoodPost from './components/ViewFoodPost';
 import CampPost from './components/CampPost';
+import ViewCampPost from './components/ViewCampPost';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path='/viewfudpost' element={<ViewFoodPost/>}/>
         <Route path='/fundhome' element={<FundHome/>}/>
         <Route path='/camppost' element={<CampPost/>}/>
+        <Route path='/viewcmppost' element={<ViewCampPost/>}/>
       </Routes>
       </BrowserRouter>
       
