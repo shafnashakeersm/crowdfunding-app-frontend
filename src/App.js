@@ -7,6 +7,7 @@ import SignUp from './components/SignUp';
 import UserHome from './components/UserHome';
 import MedPost from './components/MedPost';
 import ViewMedPost from './components/ViewMedPost';
+import FudPost from './components/FudPost';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/userhome' element={<UserHome/>}/>
         <Route path='/post' element={<MedPost/>}/>
         <Route path='/viewmedpost' element={<ViewMedPost/>}/>
+        <Route path='/fudpost' element={<FudPost/>}/>
         <Route path='/viewfudpost' element={<ViewMedPost/>}/>
       </Routes>
       </BrowserRouter>
