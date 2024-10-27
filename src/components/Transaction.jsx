@@ -26,8 +26,16 @@ const Transaction = () => {
 
     const createTransaction = async (e) => {
         e.preventDefault();
-        await axios.post("http://localhost:3030/transaction", transactionData);
-        fetchTransactions();
+        try {
+            const response = await axios.post("http://localhost:3030/transaction", transactionData);
+            // Redirect to success page with transaction details
+            history.push({
+                pathname: '/transaction-success',
+                state: { transactionDetails: response.data.transaction } // Assuming the response contains the transaction details
+            });
+        } catch (error) {
+            console.error("Error creating transaction:", error);
+        }
     };
 
     return (
