@@ -1,7 +1,14 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const ViewMedPost = () => {
+    const navigate=useNavigate(); //Hook tp programmatically navigate
+
+    const handletransactionClick=()=>{
+      navigate('/transaction'); //Navigate to the transaction page
+    };
+
     const [token] = useState(sessionStorage.getItem("token"))
     const [data, setData] = useState([])
 
@@ -44,7 +51,7 @@ const ViewMedPost = () => {
                                             <p><strong>PHONE NO :</strong></p><p>{value.phone}</p>
                                             <p><strong>MAIL-ID :</strong></p><p>{value.email}</p>
                                             <p><strong>MEDICAL HISTORY :</strong></p><p>{value.medhistory}</p>
-                                            <button className="btn btn-danger">DONATE</button>
+                                            <button className="btn btn-danger" onClick={handletransactionClick}>DONATE</button>
                                         </div>
                                         
                                     </div>

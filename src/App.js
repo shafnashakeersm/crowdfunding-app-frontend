@@ -12,6 +12,7 @@ import FundHome from './components/FundHome';
 import ViewFoodPost from './components/ViewFoodPost';
 import CampPost from './components/CampPost';
 import ViewCampPost from './components/ViewCampPost';
+import Transaction from './components/Transaction';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path='/fundhome' element={<FundHome/>}/>
         <Route path='/camppost' element={<CampPost/>}/>
         <Route path='/viewcmppost' element={<ViewCampPost/>}/>
+        <Route path='/transaction' element={<Transaction/>}/>
       </Routes>
       </BrowserRouter>
       
