@@ -1,7 +1,14 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const ViewCampPost = () => {
+    const navigate=useNavigate();
+
+    const handletransactionClick=()=>{
+        navigate('/transaction'); //Navigate to the transaction page
+      };
+
     const [token] = useState(sessionStorage.getItem("token"))
     const [data, setData] = useState([])
 
@@ -41,7 +48,7 @@ const ViewCampPost = () => {
                                             <p><strong>MAIL-ID :</strong></p><p>{value.email}</p>
                                             <p><strong>CAMPEIGN MODE :</strong></p><p>{value.mode}</p>
                                             <p><strong>CAMPEIGN PURPOSE :</strong></p><p>{value.purpose}</p>
-                                            <button className="btn btn-danger">DONATE</button>
+                                            <button className="btn btn-danger" onClick={handletransactionClick}>DONATE</button>
                                         </div>
                                         
                                     </div>

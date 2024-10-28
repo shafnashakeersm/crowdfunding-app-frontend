@@ -1,0 +1,39 @@
+/* MedPost.css */
+.card {
+    background-color: #d3dde7; /* Light background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s; /* Smooth scaling */
+}
+
+.card:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+}
+
+.form-label {
+    font-weight: bold; /* Make labels bold */
+}
+
+textarea.form-control {
+    height: 100px; /* Set height for textareas */
+}
+
+.btn {
+    background-color: #007bff; /* Custom button color */
+    color: white; /* Text color for button */
+    border-radius: 4px; /* Round button corners */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker on hover */
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem; /* Add more space between elements */
+}
+
+@media (max-width: 576px) {
+    .col-md-6 {
+        margin-bottom: 1rem; /* Space between columns on small screens */
+    }
+}

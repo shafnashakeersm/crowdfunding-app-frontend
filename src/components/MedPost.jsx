@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import './MedPost.css'; // Import custom styles
 
 const MedPost = () => {
     const [token, setToken] = useState(sessionStorage.getItem("token"));
     const [input, setInput] = useState({
-       // userId: sessionStorage.getItem("userId"),
         dob: "",
         gender: "",
         address: "",
@@ -14,17 +14,13 @@ const MedPost = () => {
         medhistory: ""
     });
 
-    // Handle form input changes
+    //const notificationSound = new Audio('/sounds/notification.mp3');
+
     const inputHandler = (event) => {
         setInput({ ...input, [event.target.name]: event.target.value });
     };
 
-    // Read values and send POST request
     const readValues = () => {
-        console.log("Input Data: ", input);
-        console.log("Token: ", token);
-
-        // Ensure token exists before sending request
         if (!token) {
             alert("Token is missing. Please login again.");
             return;
@@ -36,30 +32,27 @@ const MedPost = () => {
                 "Content-Type": "application/json"
             }
         }).then(response => {
-            console.log("Response Data: ", response.data);
             if (response.data.status === "success") {
                 alert("Posted Successfully");
+                //notificationSound.play();
             } else {
                 alert("Something went wrong!!!");
             }
         }).catch(error => {
-            // Enhanced error handling
             if (error.response) {
-                console.log("Response Error: ", error.response.data);
                 alert("Server responded with an error!");
             } else if (error.request) {
-                console.log("No Response from Server: ", error.request);
                 alert("No response from the server. Ensure the backend is running.");
             } else {
-                console.log("Axios Error: ", error.message);
                 alert("Error occurred: " + error.message);
             }
         });
     };
 
     return (
-        <div>
-            <div className="card bg-light primary border border-primary-subtle text-center w-100 p-3 h-100 d-inline-block">
+        <div className="container mt-4">
+            <div className="card p-4">
+                <h2 className="text-center mb-4">Medical Information Post</h2>
                 <div className="row">
                     <div className="col-md-6">
                         <div className="mb-3">
@@ -72,14 +65,12 @@ const MedPost = () => {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="gender" className="form-label">Gender</label>
-                            <div className="col-auto">
-                                <select name="gender" className="form-control" value={input.gender} onChange={inputHandler}>
-                                    <option value="">Select</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Others">Others</option>
-                                </select>
-                            </div>
+                            <select name="gender" className="form-control" value={input.gender} onChange={inputHandler}>
+                                <option value="">Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
+                            </select>
                         </div>
                     </div>
                     <div className="col-md-6">
