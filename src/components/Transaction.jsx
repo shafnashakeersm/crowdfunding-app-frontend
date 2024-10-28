@@ -1,7 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Transaction = () => {
+    const navigate = useNavigate(); // Hook to programmatically navigate
+
     const [transactions, setTransactions] = useState([]);
     const [transactionData, setTransactionData] = useState({
         transactionId: "",
@@ -15,8 +18,12 @@ const Transaction = () => {
     }, []);
 
     const fetchTransactions = async () => {
-        const response = await axios.get("http://localhost:3030/transactions");
-        setTransactions(response.data);
+        try {
+            const response = await axios.get("http://localhost:3030/transactions");
+            setTransactions(response.data);
+        } catch (error) {
+            console.error("Error fetching transactions:", error);
+        }
     };
 
     const handleInputChange = (e) => {
@@ -26,8 +33,14 @@ const Transaction = () => {
 
     const createTransaction = async (e) => {
         e.preventDefault();
-        await axios.post("http://localhost:3030/transaction", transactionData);
-        fetchTransactions();
+        try {
+            const response = await axios.post("http://localhost:3030/transaction", transactionData);
+            navigate('/transsuccess', {
+                state: { transactionDetails: response.data.transaction }
+            });
+        } catch (error) {
+            console.error("Error creating transaction:", error);
+        }
     };
 
     return (
@@ -80,23 +93,14 @@ const Transaction = () => {
                                 />
                             </div>
 
-                            <div class="row g-3 justify-content-md-center">
-                                <div class="col-auto ">
+                            <div className="row g-3 justify-content-md-center">
+                                <div className="col-auto">
                                     <button className="btn btn-primary" onClick={createTransaction}>Pay</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* <h2>All Transactions</h2>
-                <ul>
-                    {transactions.map((transaction) => (
-                        <li key={transaction.transactionId}>
-                            ID: {transaction.transactionId}, Amount: ${transaction.amount},
-                            Status: {transaction.status}, Date: {new Date(transaction.date).toLocaleDateString()}
-                        </li>
-                    ))}
-                </ul> */}
             </div>
         </div>
     );
