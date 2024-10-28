@@ -1,0 +1,19 @@
+/* FundHome.css */
+.container {
+    padding: 20px;
+}
+
+.card {
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.2s; /* Smooth scaling on hover */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+.card-title {
+    font-weight: bold; /* Make the title bold */
+}
+
+/* Add additional media queries if needed for responsiveness */

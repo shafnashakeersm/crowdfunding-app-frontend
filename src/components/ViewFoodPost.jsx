@@ -1,7 +1,14 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const ViewFoodPost = () => {
+    const navigate=useNavigate();
+    
+    const handletransactionClick=()=>{
+        navigate('/transaction'); //Navigate to the transaction page
+      };
+
     const [token] = useState(sessionStorage.getItem("token"))
     const [data, setData] = useState([])
 
@@ -40,7 +47,7 @@ const ViewFoodPost = () => {
                                             <p><strong>ADDRESS :</strong></p><p>{value.address}</p>
                                             <p><strong>PHONE NO :</strong></p><p>{value.phone}</p>
                                             <p><strong>CITY :</strong></p><p>{value.city}</p>
-                                            <button className="btn btn-danger">DONATE</button>
+                                            <button className="btn btn-danger" onClick={handletransactionClick}>DONATE</button>
                                         </div>
                                         
                                     </div>

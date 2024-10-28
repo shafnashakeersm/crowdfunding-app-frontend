@@ -14,6 +14,7 @@ import CampPost from './components/CampPost';
 import ViewCampPost from './components/ViewCampPost';
 import Transaction from './components/Transaction';
 import TransSuccess from './components/TransSuccess';
+import Invoice from './components/Invoice';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path='/viewcmppost' element={<ViewCampPost/>}/>
         <Route path='/transaction' element={<Transaction/>}/>
         <Route path='/transsuccess' element={<TransSuccess/>}/>
+        <Route path='/invoice' element={<Invoice/>}/>
       </Routes>
       </BrowserRouter>
       
