@@ -19,13 +19,13 @@ textarea.form-control {
 }
 
 .btn {
-    background-color: #007bff; /* Custom button color */
-    color: white; /* Text color for button */
+    background-color: #443c8b; /* Custom button color */
+    color: rgb(38, 40, 149); /* Text color for button */
     border-radius: 4px; /* Round button corners */
 }
 
 .btn:hover {
-    background-color: #0056b3; /* Darker on hover */
+    background-color: #381897; /* Darker on hover */
 }
 
 .mb-3 {

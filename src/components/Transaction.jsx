@@ -8,8 +8,9 @@ const Transaction = () => {
     const [transactions, setTransactions] = useState([]);
     const [transactionData, setTransactionData] = useState({
         transactionId: "",
-        amount: 0,
-        status: "",
+        name: "",
+        place: "",
+        amount:0,
         description: ""
     });
 
@@ -50,19 +51,31 @@ const Transaction = () => {
                     <div className="mb-3">
                         <form onSubmit={createTransaction}>
                             <div className="row g-3 align-items-center">
-                                <div className="col-auto">
-                                    <label htmlFor="transactionId" className="form-label">Transaction Id</label>
+
+                                <div className="mb-3">
+                                    <label htmlFor="amount" className="form-label">NAME</label>
                                     <input
                                         type="text"
                                         className="form-control"
-                                        name="transactionId"
-                                        value={transactionData.transactionId}
+                                        name="name"
+                                        value={transactionData.name}
                                         onChange={handleInputChange}
                                     />
                                 </div>
 
                                 <div className="mb-3">
-                                    <label htmlFor="amount" className="form-label">Amount</label>
+                                    <label htmlFor="status" className="form-label">PLACE</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="place"
+                                        value={transactionData.place}
+                                        onChange={handleInputChange}
+                                    />
+                                </div>
+
+                                <div className="mb-3">
+                                    <label htmlFor="status" className="form-label">AMOUNT</label>
                                     <input
                                         type="number"
                                         className="form-control"
@@ -73,18 +86,7 @@ const Transaction = () => {
                                 </div>
 
                                 <div className="mb-3">
-                                    <label htmlFor="status" className="form-label">Status</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        name="status"
-                                        value={transactionData.status}
-                                        onChange={handleInputChange}
-                                    />
-                                </div>
-
-                                <div className="mb-3">
-                                    <label htmlFor="description" className="form-label">Description</label>
+                                    <label htmlFor="description" className="form-label">DESCRIPTION</label>
                                     <input
                                         type="text"
                                         className="form-control"

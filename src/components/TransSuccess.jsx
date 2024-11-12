@@ -34,10 +34,13 @@ const TransactionSuccess = () => {
                             <strong>Transaction ID:</strong> {transactionDetails.transactionId}
                         </li>
                         <li className="list-group-item">
-                            <strong>Amount:</strong> ${transactionDetails.amount}
+                            <strong>Name:</strong> {transactionDetails.name}
                         </li>
                         <li className="list-group-item">
-                            <strong>Status:</strong> {transactionDetails.status}
+                            <strong>Place:</strong> {transactionDetails.place}
+                        </li>
+                        <li className="list-group-item">
+                            <strong>Amount:</strong> ${transactionDetails.amount}
                         </li>
                         <li className="list-group-item">
                             <strong>Description:</strong> {transactionDetails.description}

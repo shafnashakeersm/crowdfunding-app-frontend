@@ -1,10 +1,11 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './MedPost.css'; // Import custom styles
 
 const MedPost = () => {
     const [token, setToken] = useState(sessionStorage.getItem("token"));
     const [input, setInput] = useState({
+        name: "",
         dob: "",
         gender: "",
         address: "",
@@ -14,20 +15,45 @@ const MedPost = () => {
         medhistory: ""
     });
 
-    //const notificationSound = new Audio('/sounds/notification.mp3');
-
     const inputHandler = (event) => {
         setInput({ ...input, [event.target.name]: event.target.value });
     };
 
+    // Validation function
+    const validateForm = () => {
+        const { name, dob, gender, address, city, phone, email, medhistory } = input;
+
+        if (!name.trim()) return "Name is required.";
+        if (!dob) return "Date of birth is required.";
+        if (!gender) return "Gender is required.";
+        if (!address.trim()) return "Address is required.";
+        if (!city.trim()) return "City is required.";
+        
+        const phoneRegex = /^\d{10}$/;
+        if (!phoneRegex.test(phone)) return "Phone number must be a 10-digit number.";
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) return "Please enter a valid email address.";
+
+        if (!medhistory.trim()) return "Medical history is required.";
+
+        return null; // No errors
+    };
+
     const readValues = () => {
+        const error = validateForm();
+        if (error) {
+            alert(error);
+            return;
+        }
+
         if (!token) {
             alert("Token is missing. Please login again.");
             return;
         }
 
         axios.post("http://localhost:3030/create", input, {
-            headers: { 
+            headers: {
                 "token": token,
                 "Content-Type": "application/json"
             }
